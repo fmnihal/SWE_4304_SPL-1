@@ -4,64 +4,66 @@
 #include <vector>
 #include <limits>
 
+using namespace std;
+
 struct Course {
-    std::string name;
+    string name;
     int credits;
 };
 
 struct Program {
-    std::string name;
-    std::vector<Course> courses;
+    string name;
+    vector<Course> courses;
 };
 
 struct University {
-    std::string name;
+    string name;
     int ranking;
-    std::vector<Program> programs;
+    vector<Program> programs;
 };
 
-void displayUniversityData(const std::vector<University>& universities) {
+void displayUniversityData(const vector<University>& universities) {
     for (const auto& uni : universities) {
-        std::cout << "University: " << uni.name << " - Ranking: " << uni.ranking << std::endl;
+        cout << "University: " << uni.name << " - Ranking: " << uni.ranking << endl;
         for (const auto& program : uni.programs) {
-            std::cout << "\tProgram: " << program.name << std::endl;
+            cout << "\tProgram: " << program.name << endl;
             for (const auto& course : program.courses) {
-                std::cout << "\t\tCourse: " << course.name << " - Credits: " << course.credits << std::endl;
+                cout << "\t\tCourse: " << course.name << " - Credits: " << course.credits << endl;
             }
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 
-void saveUniversityData(const std::vector<University>& universities) {
-    std::ofstream file("universities_and_courses.txt");
+void saveUniversityData(const vector<University>& universities) {
+    ofstream file("universities_and_courses.txt");
     if (file.is_open()) {
         for (const auto& uni : universities) {
-            file << "University: " << uni.name << " - Ranking: " << uni.ranking << std::endl;
+            file << "University: " << uni.name << " - Ranking: " << uni.ranking << endl;
             for (const auto& program : uni.programs) {
-                file << "\tProgram: " << program.name << std::endl;
+                file << "\tProgram: " << program.name << endl;
                 for (const auto& course : program.courses) {
-                    file << "\t\tCourse: " << course.name << " - Credits: " << course.credits << std::endl;
+                    file << "\t\tCourse: " << course.name << " - Credits: " << course.credits << endl;
                 }
             }
-            file << std::endl;
+            file << endl;
         }
-        std::cout << "University data saved to universities_and_courses.txt\n";
+        cout << "University data saved to universities_and_courses.txt\n";
         file.close();
     } else {
-        std::cout << "Error: Unable to save university data to file.\n";
+        cout << "Error: Unable to save university data to file.\n";
     }
 }
 
-void loadUniversityData(std::vector<University>& universities) {
-    std::ifstream file("universities_and_courses.txt");
+void loadUniversityData(vector<University>& universities) {
+    ifstream file("universities_and_courses.txt");
     if (file.is_open()) {
         University university;
         Program program;
         Course course;
-        std::string line;
-        while (std::getline(file, line)) {
-            if (line.find("University:") != std::string::npos) {
+        string line;
+        while (getline(file, line)) {
+            if (line.find("University:") != string::npos) {
                 if (!university.name.empty()) {
                     universities.push_back(university);
                 }
@@ -70,11 +72,11 @@ void loadUniversityData(std::vector<University>& universities) {
                 university.name = line.substr(line.find(":") + 2);
                 file >> line; // Read "Ranking:"
                 file >> university.ranking;
-            } else if (line.find("Program:") != std::string::npos) {
+            } else if (line.find("Program:") != string::npos) {
                 program.name = line.substr(line.find(":") + 2);
                 university.programs.push_back(program);
                 program = Program();
-            } else if (line.find("Course:") != std::string::npos) {
+            } else if (line.find("Course:") != string::npos) {
                 course.name = line.substr(line.find(":") + 2);
                 file >> line; // Read "Credits:"
                 file >> course.credits;
@@ -86,69 +88,68 @@ void loadUniversityData(std::vector<University>& universities) {
             universities.push_back(university);
         }
         file.close();
-        std::cout << "University data loaded from universities_and_courses.txt\n";
+        cout << "University data loaded from universities_and_courses.txt\n";
     } else {
-        std::cout << "No existing university data found.\n";
+        cout << "No existing university data found.\n";
     }
 }
 
-
 // Function to input university data and add it to the vector
-void inputUniversityData(std::vector<University>& universities) {
-    std::string universityName, programName, courseName;
+void inputUniversityData(vector<University>& universities) {
+    string universityName, programName, courseName;
     int ranking, credits;
 
-    std::cout << "Enter university data (name, ranking, 0 to stop):\n";
+    cout << "Enter university data (name, ranking, 0 to stop):\n";
     while (true) {
         University university;
 
         // Read university name with spaces
-        std::cout << "University name: ";
-        std::getline(std::cin >> std::ws, universityName);
+        cout << "University name: ";
+        getline(cin >> ws, universityName);
         if (universityName == "0") {
             break;
         }
 
-        std::cout << "Ranking: ";
-        std::cin >> ranking;
+        cout << "Ranking: ";
+        cin >> ranking;
 
         // Clear the input buffer to consume the newline character
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         university.name = universityName;
         university.ranking = ranking;
 
-        std::cout << "Enter programs and courses (name, 0 to stop):\n";
+        cout << "Enter programs and courses (name, 0 to stop):\n";
         while (true) {
             Program program;
 
             // Read program name with spaces
-            std::cout << "Program name: ";
-            std::getline(std::cin >> std::ws, programName);
+            cout << "Program name: ";
+            getline(cin >> ws, programName);
             if (programName == "0") {
                 break;
             }
 
             program.name = programName;
 
-            std::cout << "Enter courses and credits (name, credits, 0 to stop):\n";
+            cout << "Enter courses and credits (name, credits, 0 to stop):\n";
             while (true) {
                 Course course;
 
                 // Read course name with spaces
-                std::cout << "Course name: ";
-                std::getline(std::cin >> std::ws, courseName);
+                cout << "Course name: ";
+                getline(cin >> ws, courseName);
                 if (courseName == "0") {
                     break;
                 }
 
-                std::cout << "Credits: ";
-                std::cin >> credits;
+                cout << "Credits: ";
+                cin >> credits;
 
                 // Clear the input buffer to consume the newline character
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
                 course.name = courseName;
                 course.credits = credits;
@@ -163,11 +164,8 @@ void inputUniversityData(std::vector<University>& universities) {
     }
 }
 
-
-
-
 int main() {
-    std::vector<University> universities;
+    vector<University> universities;
     loadUniversityData(universities);
 
     // Call function to input university data
@@ -177,7 +175,7 @@ int main() {
     // ...
 
     // Display and save university data
-    std::cout << "\nList of Universities, Programs, and Courses:\n";
+    cout << "\nList of Universities, Programs, and Courses:\n";
     displayUniversityData(universities);
 
     saveUniversityData(universities); // Save data to file before exiting the program
