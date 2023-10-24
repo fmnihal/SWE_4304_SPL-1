@@ -1,0 +1,12 @@
+OOP
+https://www.w3schools.com/cpp/cpp_oop.asp
+TOC
+https://www.geeksforgeeks.org/introduction-of-theory-of-computation/
+COA
+https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/
+LA
+https://www.cuemath.com/algebra/linear-algebra/
+DS
+https://www.freecodecamp.org/news/learn-data-structures-and-algorithms/
+DBMS
+https://www.geeksforgeeks.org/introduction-of-dbms-database-management-system-set-1/
