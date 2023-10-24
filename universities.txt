@@ -1,0 +1,6 @@
+ruet 0
+iut 1
+du 2
+ruet 3
+kuet 4
+cuet 5
