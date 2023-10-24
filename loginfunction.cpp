@@ -2,25 +2,26 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <map>
+
+using namespace std;
 
 // Function to save username and password to a file
-void saveCredentials(const std::string& username, const std::string& password) {
-    std::ofstream file("credentials.txt", std::ios::app);
+void saveCredentials(const string& username, const string& password) {
+    ofstream file("credentials.txt", ios::app);
     if (file.is_open()) {
-        file << username << " " << password << std::endl;
-        std::cout << "Registration successful. You can now log in.\n";
+        file << username << " " << password << endl;
+        cout << "Registration successful. You can now log in.\n";
         file.close();
     } else {
-        std::cout << "Error: Unable to save credentials.\n";
+        cout << "Error: Unable to save credentials.\n";
     }
 }
 
 // Function to authenticate user based on saved credentials
-bool authenticateUser(const std::string& username, const std::string& password) {
-    std::ifstream file("credentials.txt");
+bool authenticateUser(const string& username, const string& password) {
+    ifstream file("credentials.txt");
     if (file.is_open()) {
-        std::string savedUsername, savedPassword;
+        string savedUsername, savedPassword;
         while (file >> savedUsername >> savedPassword) {
             if (savedUsername == username && savedPassword == password) {
                 return true;
@@ -33,33 +34,33 @@ bool authenticateUser(const std::string& username, const std::string& password) 
 
 int main() {
     int choice;
-    std::string username, password;
+    string username, password;
 
-    std::cout << "Welcome to the Login System\n";
-    std::cout << "1. Register\n";
-    std::cout << "2. Login\n";
-    std::cout << "Enter your choice: ";
-    std::cin >> choice;
+    cout << "Welcome to the Login System\n";
+    cout << "1. Register\n";
+    cout << "2. Login\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
 
     if (choice == 1) {
-        std::cout << "Enter username: ";
-        std::cin >> username;
-        std::cout << "Enter password: ";
-        std::cin >> password;
+        cout << "Enter username: ";
+        cin >> username;
+        cout << "Enter password: ";
+        cin >> password;
         saveCredentials(username, password);
     } else if (choice == 2) {
-        std::cout << "Enter username: ";
-        std::cin >> username;
-        std::cout << "Enter password: ";
-        std::cin >> password;
+        cout << "Enter username: ";
+        cin >> username;
+        cout << "Enter password: ";
+        cin >> password;
         if (authenticateUser(username, password)) {
-            std::cout << "Login successful. Welcome, " << username << "!\n";
+            cout << "Login successful. Welcome, " << username << "!\n";
             // Add your application logic here after successful login
         } else {
-            std::cout << "Login failed. Invalid username or password.\n";
+            cout << "Login failed. Invalid username or password.\n";
         }
     } else {
-        std::cout << "Invalid choice.\n";
+        cout << "Invalid choice.\n";
     }
 
     return 0;
