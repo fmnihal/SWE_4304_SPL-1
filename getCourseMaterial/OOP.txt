@@ -1,1 +1,11 @@
-jnxfihbs SJI
+Lecture 1: OOC-I Recap
+OCP Example
+Refactoring
+Clean Code
+Code Smells
+SOLID
+        Single Responsibility Principle   (SRP)
+        Open Closed Principle               (OCP)
+        Liskov Substitution Principle      (LSP)
+        Interface Segregation Principle  (ISP)  
+        Dipendency Inversion Principle  (DIP)

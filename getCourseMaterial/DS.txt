@@ -1,0 +1,13 @@
+Lecture 1: Introduction to data structures, Complexity Time-Space Tradeoff
+Lecture 2:  Abstract Data Type, Arrays & Linked List
+Lecture 3:  Stacks & Its Applications
+Lecture 4: Queue & Deque
+Lecture 5:  Priority Queue & Heap
+Lecture 6:  Linear Search, Binary Search, Tree Terminologies
+Lecture 7: Binary Tree, Tree Traversals
+
+https://vjudge.net/contest/581870
+Password: ComeBackSTL
+
+https://vjudge.net/contest/588936
+Password: recursion

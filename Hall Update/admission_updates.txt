@@ -1,0 +1,17 @@
+1st Year:
+                2645    BTM Self
+                1911    Civil Self
+                981      EEE Self
+                2261    IPE Self
+                1590    ME Self
+                1252    SWE Self
+                472     CSE Self
+2nd Year:
+                3129    BTM Self
+3rd Year:
+                1963    IPE Self
+
+//Students who got OIC Partial Scholarship will automatically get hall seats.
+
+Provost Offic website Link:
+https://provost.male.iutoic-dhaka.edu/notices

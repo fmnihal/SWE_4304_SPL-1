@@ -1,0 +1,12 @@
+Finite Automata
+DFA
+NFA
+Equivalence of DFA
+Equivalence of NFA
+Minimization of DFA
+E-NFA
+Regular Expression
+Lecture Notes- Harry H Porter
+
+Chapter: 1,2,3,4 from book 1; Hopcroft
+Part 1: Automata & Language from Book 2; Sipser
