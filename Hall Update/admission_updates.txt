@@ -14,4 +14,5 @@
 //Students who got OIC Partial Scholarship will automatically get hall seats.
 
 Provost Offic website Link:
-https://provost.male.iutoic-dhaka.edu/notices
+https://provost.male.iutoic-dhaka.edu/notices 
+Well, this will not be included
