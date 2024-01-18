@@ -2,10 +2,9 @@
 #include <fstream>
 #include <string>
 
-using namespace std;  // Using the entire namespace for simplicity (not recommended in large projects)
+using namespace std;
 
 // Function to view the list of universities
-
 void viewUniversity() {
     ifstream universityFile("university_names.txt");
     
@@ -67,10 +66,7 @@ void viewCategorizedUniversities() {
 
     if (universityFile.is_open()) {
         string universityName;
-
-        // Output universities based on the specified type
         cout << "\n";
-
         while (getline(universityFile, universityName)) {
             // Output universities based on the specified type
             if (!universityName.empty()) {
@@ -84,13 +80,50 @@ void viewCategorizedUniversities() {
     }
 }
 
+// Function to display study abroad opportunities based on regions
+void seeHigherStudyOpportunity() {
+    cout << "Choose a region to see study abroad opportunities:\n";
+    cout << "1. North America\n";
+    cout << "2. Europe\n";
+    cout << "3. Asia\n";
+    cout << "4. Australia\n";
 
+    int regionChoice;
+    cout << "Enter your choice (1-4): ";
+    cin >> regionChoice;
+
+    switch (regionChoice) {
+        case 1:
+            cout << "\nStudy Abroad Opportunities in North America:\n";
+            cout << "United States: Stanford University, Massachusetts Institute of Technology, Carnegie Mellon University, University of California, Berkeley, Princeton University, University of Washington\n";
+			cout << "Canada: National University of Singapore\n";
+            break;
+        case 2:
+            cout << "\nStudy Abroad Opportunities in Europe:\n";
+            cout << "United Kingdom: University of Oxford, University of Cambridge, Imperial College London\n";
+			cout << "ETH Zurich\n";
+			cout << "Germany: Technical University of Munich\n";
+			cout << "France: Institut Polytechnique de Paris, Université Paris-Saclay\n";
+            break;
+        case 3:
+            cout << "\nStudy Abroad Opportunities in Asia:\n";
+            cout << "Singapore: National University of Singapore, Nanyang Technological University\n";
+			cout << "China: Tsinghua University\n";
+			cout << "Taiwan: National Yang Ming Chiao Tung University\n";
+            break;
+        case 4:
+            cout << "\nStudy Abroad Opportunities in Australia:\n";
+            cout << "University of Melbourne\n";
+            break;
+        default:
+            cout << "Invalid choice.\n";
+            return;
+    }
+}
 
 
 // Function to authenticate and determine user type
 string authenticateUser(const string& userType, string& department, string& program, int& semester) {
-    // Your authentication logic goes here
-    // For simplicity, let's use some hardcoded values
     if (userType == "A") {
         while (true) {
             cout << "\nChoose a feature:\n";
@@ -118,10 +151,8 @@ string authenticateUser(const string& userType, string& department, string& prog
                     cout << "Invalid choice. Try again.\n";
             }
         }
-		//return "Welcome, Admission Candidate!";
     } else if (userType == "U") {
     	while (true){
-    		// Prompt the undergraduate student to choose a department
         cout << "\nChoose department:\n";
         cout << "1. CSE\n";
         cout << "2. EEE\n";
@@ -137,7 +168,6 @@ string authenticateUser(const string& userType, string& department, string& prog
             case 1:
                 department = "CSE";
                 while (true) {
-                        // Prompt the CSE student to choose a program
                         cout << "\nChoose program:\n";
                         cout << "1. CSE\n";
                         cout << "2. SWE\n";
@@ -153,7 +183,6 @@ string authenticateUser(const string& userType, string& department, string& prog
                             case 2:
                                 program = "SWE";
                                 while (true) {
-                                    // Prompt the SWE student to choose a semester
                                     cout << "\nChoose semester (1-8): ";
                                     cin >> semester;
 
@@ -176,8 +205,6 @@ string authenticateUser(const string& userType, string& department, string& prog
 
                                                 switch (featureChoice) {
                                                     case 1:
-                                                        //cout << "Fetching Syllabus...\n";
-                                                        // Add code to implement "Get Syllabus" feature
                                                         // Course-wise switch case for Get Syllabus
                                                         while (true) {
                                                             cout << "\nChoose a course for Syllabus:\n";
@@ -200,16 +227,13 @@ string authenticateUser(const string& userType, string& department, string& prog
                                                             switch (courseChoice) {
                                                                 case 1:
                                                                     //cout << "Fetching Syllabus for SWE 4301...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Review of Object Oriented Concept, Multi-threading, UML Diagrams for Class, Objects and Relationships, UI programming, Synchronizations, Client Server programming, RPC, Distributed Objects, XML, Web programming : URL, Request and Response, HTML and DOM, Model –View–Controller, Container, Data Objects and Business Objects, Persistent Object, Object Serialization using XML, Web Service.\n";
                                                                     cout << "Objects and the Internet – Ajax, Object-Based Scripting Languages: JSON and Python.\n";
                                                                     cout << "Object Oriented Design Principles - Single Responsibility Principle, Open/Close Principle, Liskov Substitution Principal, Interface Segregation Principle and Dependency Inversion Principle; Introduction to Component Based Design, Design Patterns and Code Smells.\n";
                                                                     cout << "\n";
 																	break;
-                                                                // Add cases for other courses
                                                                 case 2:
                                                                     //cout << "Fetching Syllabus for CSE 4303...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4303
                                                                     cout << "Introduction to data structures: what & why, Notations, Concept of efficiency. Elementary Data Structures: Arrays, Records & Pointers, Examples of Random Access, Call by Reference, Variable Length Strings, Secondary Storage, and Implementation in Memory.\n";
                                                                     cout << "Lists: Concept of Linked Lists. The implementation, Sub list, Recursive lists, Variants, Orthogonal lists, Stack & Queue, Sequential & circular implementation of stack & queue, Applications of stack & queue.\n";
                                                                     cout << "Graphs: Breadth-First-Search (BFS), Depth-First-Search (DFS), connected components & topological numbering, Applications.\n";
@@ -223,20 +247,17 @@ string authenticateUser(const string& userType, string& department, string& prog
 																	break;
                                                                 case 3:
                                                                     //cout << "Fetching Syllabus for CSE 4305...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Components of a computer system: processors, memory, secondary storage devices and media, and other input output devices. Processor organization: registers, buses, multiplexers, decoders, ALUs, clocks, main memory and caches.\n";
                                                                     cout << "Information representation and transfer; instruction and data access methods; the control unit: hardwired and microprogrammed; memory organization, I/O systems, channels, interrupts, DMA. Von Neumann SISD organization. RISC and CISC machines.\n";
                                                                     cout << "\n";
 																	break;
                                                                 case 4:
                                                                     //cout << "Fetching Syllabus for CSE 4307...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Overview of database management systems; DBMS file structures; introduction to the relational model; relational algebra, normalization and relational design; ER modeling, object-oriented modeling, advanced features of the relational model; Database Design Language; the hierarchical model; the CODASYL model; alternative data models; physical database design; fourth-generation environment; database administration, database recovery, distributed databases and current trends in the field. Relational query languages: SQL; embedded SQL in a third-generation language (COBOL, C or C++). Transaction management; concurrency control.\n";
                                                                     cout << "\n";
 																	break;
                                                                 case 5:
                                                                     //cout << "Fetching Syllabus for CSE 4309...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Review of Discrete Mathematics - Binary relations, digraph, string, languages, proofs, inductive definitions.\n";
                                                                     cout << "Formal methods of automata language and computability, Finite automata and regular expressions, Properties of regular sets, Contextfree grammars, Push-down automata, Properties of context-free languages, Turing machines, Halting problem, Undecidability and Computability, Recursion function theory, Chomsky hierarchy, Deterministic context-free languages, Closure properties of families of languages, Computational complexity theory, Intractable problems, Applications in parsing, pattern matching and the design of efficient algorithms.\n";
                                                                     cout << "Finite state machines, Introduction to sequential circuits, basic definition of finite state model, memory elements and their excitation functions, synthesis of synchronous sequential circuits, iterative networks, definition and realization of Moore and Mealey machines.\n";
@@ -244,7 +265,6 @@ string authenticateUser(const string& userType, string& department, string& prog
 																	break;
                                                                 case 6:
                                                                     //cout << "Fetching Syllabus for Math 4341...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Linear Algebra: Solving for square systems by elimination (pivots, multipliers, back substitution, invertibility of , and factorization into . Complete solution to (column space containing , rank of , nullspace of and special solutions to from row reduction).\n";
                                                                     cout << "Basis and dimension (bases for the four fundamental subspaces). Least squares solutions (closest line by understanding projections). Orthogonalization by Gram-Schmidt (factorization into ).\n";
                                                                     cout << "Properties of determinants (leading to the cofactor formula and the sum over all permutations, applications to inverse matrix calculation and volume). Eigenvalues and eigenvectors (diagonalizing , computing powers and matrix exponentials to solve difference and differential equations). Symmetric matrices and positive definite matrices (real eigenvalues and orthogonal eigenvectors, tests for , applications).\n";
@@ -253,25 +273,21 @@ string authenticateUser(const string& userType, string& department, string& prog
 																	break;
                                                                 case 7:
                                                                     //cout << "Fetching Syllabus for SWE 4302...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Sessional works based on 4301 OOP.\n";
 																	cout << "\n";
 																	break;
                                                                 case 8:
                                                                     //cout << "Fetching Syllabus for SWE 4304...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Each student will be assigned a single complete software project individually. The size of the projects will be medium. It will focus on the application of the different features of programming language. Student will be evaluated based on their software and problem solving effort.\n";
 																	cout << "\n";
 																	break;
                                                                 case 9:
                                                                     //cout << "Fetching Syllabus for CSE 4304...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Sessional works based on 4303 DS.\n";
 																	cout << "\n";
 																	break;    
                                                                 case 10:
                                                                     //cout << "Fetching Syllabus for CSE 4308...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Sessional works based on 4307 DBMS.\n";
 																	cout << "\n";
 																	break;
@@ -285,13 +301,9 @@ string authenticateUser(const string& userType, string& department, string& prog
                                                         }
                                                         break;
                                                     case 2:
-                                                        //cout << "Fetching Book List...\n";
-                                                        // Add code to implement "Get Book List" feature
                                                         // Course-wise switch case for Get Book List
                                                         while (true) {
                                                             cout << "\nChoose a course for Book List:\n";
-                                                            // List of courses similar to the Syllabus section
-                                                            // (You can copy and modify the course list)
                                                             cout << "1. SWE 4301 - Object Oriented Concepts II\n";
                                                             cout << "2. CSE 4303 - Data Structures\n";
                                                             cout << "3. CSE 4305 - Computer Architecture & Organization\n";
@@ -311,7 +323,6 @@ string authenticateUser(const string& userType, string& department, string& prog
                                                             switch (courseChoice) {
                                                                 case 1:
                                                                     //cout << "Fetching Book List for SWE 4301...\n";
-                                                                    // Add code to implement "Get Book List" feature for SWE 4301
                                                                     cout << "The Object Oriented Thought Process; Matt A. Weisfeld\n";
                                                                     cout << "99 Bottles of OOP; Sandy Metz\n";
                                                                     cout << "Agile Software Developments, Principles, Patterns & Practices; Robert Martin\n";
@@ -320,61 +331,51 @@ string authenticateUser(const string& userType, string& department, string& prog
                                                                     cout << "Test Driven Development by Example; Kent Beck\n";
 																	cout << "\n";
 																	break;
-                                                                // Add cases for other courses
                                                                 case 2:
                                                                     ////cout << "Fetching Book List for CSE 4303...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Data Structures And Algorithm Analysis In C++, 4rth Edition; Mark Allen\n";
                                                                     cout << "Data Structures Using C, 2nd Edition; Rema Thareja\n";
 																	cout << "\n";
 																	break;
                                                                 case 3:
                                                                     //cout << "Fetching Book List for CSE 4305...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "COA: Designing for Performance;10th Ed; William Stallings\n";
                                                                     cout << "Computer Organization & Design: The Hardware/Software Interface; 5th Ed; Hennsey, Patterson\n";
 																	cout << "\n";
 																	break;
                                                                 case 4:
                                                                     //cout << "Fetching Book List for CSE 4307...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Database System Concepts, 7th Edition, Silberschatz\n";
 																	cout << "\n";
 																	break;
                                                                 case 5:
                                                                     //cout << "Fetching Book List for CSE 4309...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Introduction to Automata Theory, Languages & Computation; 3rd Ed; Hopcroft\n";
                                                                     cout << "Introduction to the TOC; 2nd Ed; Sipser\n";
 																	cout << "\n";
 																	break;
                                                                 case 6:
                                                                     //cout << "Fetching Book List for Math 4341...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Introduction to Linear Algebra, 5th Ed; Gilbert Strang\n";
 																	cout << "\n";
 																	break;
                                                                 case 7:
                                                                     //cout << "Fetching Book List for SWE 4302...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Same as for 4301 OOP\n";
 																	cout << "\n";
 																	break;
                                                                 case 8:
                                                                     //cout << "Fetching Book List for SWE 4304...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Same as for 4301 OOP\n";
 																	cout << "\n";
 																	break;
                                                                 case 9:
                                                                     //cout << "Fetching Book List for CSE 4304...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Same as for 4303 DS\n";
 																	cout << "\n";
 																	break;    
                                                                 case 10:
                                                                     //cout << "Fetching Book List for CSE 4308...\n";
-                                                                    // Add code to implement "Get Syllabus" feature for SWE 4301
                                                                     cout << "Same as for 4307 DBMS\n";
 																	cout << "\n";
 																	break;
@@ -389,13 +390,9 @@ string authenticateUser(const string& userType, string& department, string& prog
                                                         }
                                                         break;
                                                     case 3:
-                                                        //cout << "Fetching Course Material...\n";
-                                                        // Add code to implement "Get Course Material" feature
                                                         // Course-wise switch case for Get Course Material
                                                         while (true) {
                                                             cout << "\nChoose a course for Course Material:\n";
-                                                            // List of courses similar to the Syllabus section
-                                                            // (You can copy and modify the course list)
                                                             cout << "1. SWE 4301 - Object Oriented Concepts II\n";
                                                             cout << "2. CSE 4303 - Data Structures\n";
                                                             cout << "3. CSE 4305 - Computer Architecture & Organization\n";
@@ -484,7 +481,8 @@ string authenticateUser(const string& userType, string& department, string& prog
 														cout << "\n";
 														break;
 													case 5:
-														cout << "Fetching Opportunity list for Higher Studies\n";
+														//cout << "\nFetching Opportunity list for Higher Studies\n";
+														seeHigherStudyOpportunity();
 														break;
 													case 6:
                                                         cout << "Exiting feature selection.\n";
@@ -494,7 +492,6 @@ string authenticateUser(const string& userType, string& department, string& prog
                                                 }
                                             }
                                             break;
-                                        // Add cases for other semesters if needed
                                     }
 
                                     } else{

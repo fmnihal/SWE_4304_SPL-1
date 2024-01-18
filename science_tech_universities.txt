@@ -1,4 +1,5 @@
 Science and Technology Universities of Bangladesh:
+
 Shahjalal University of Science and Technology (SUST)
 Jashore University of Science and Technology (JUST)
 Patuakhali Science & Technology University (PSTU)
@@ -12,3 +13,4 @@ Bangamata Sheikh Fojilatunnesa Mujib Science and Technology University (BSFMSTU)
 Bogura Science and Technology University (BUST)
 Lakshmipur Science and Technology University (LSTU)
 Sunamganj Science and Technology University (SSTU)
+Chandpur Science and Technology University (CSTU)
