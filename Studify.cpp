@@ -1,14 +1,124 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;  // Using the entire namespace for simplicity (not recommended in large projects)
+
+// Function to view the list of universities
+
+void viewUniversity() {
+    ifstream universityFile("university_names.txt");
+    
+    if (universityFile.is_open()) {
+        string universityName;
+        cout << "List of Universities for Admission candidate:\n";
+        while (getline(universityFile, universityName)) {
+            // Output universities for Admission Candidate
+            if (!universityName.empty()) {
+                cout << universityName << endl;
+            }
+        }
+        universityFile.close();
+    } else {
+        cerr << "Unable to open university file." << endl;
+    }
+}
+
+// Function to categorize universities based on their types
+void viewCategorizedUniversities() {
+    // Choose a type of universities to display
+    cout << "\nChoose a type of universities to display:\n";
+    cout << "1. General Universities (general_universities.txt)\n";
+    cout << "2. Agricultural Universities (agricultural_universities.txt)\n";
+    cout << "3. Engineering Universities (engineering_universities.txt)\n";
+    cout << "4. Science and Technology Universities (science_tech_universities.txt)\n";
+    cout << "5. Medical Universities (medical_universities.txt)\n";
+    cout << "6. Private Universities (private_universities.txt)\n";
+
+    int choice;
+    cout << "\nEnter your choice (1-6): ";
+    cin >> choice;
+
+    ifstream universityFile;
+
+    switch (choice) {
+        case 1:
+            universityFile.open("general_universities.txt");
+            break;
+        case 2:
+            universityFile.open("agricultural_universities.txt");
+            break;
+        case 3:
+            universityFile.open("engineering_universities.txt");
+            break;
+        case 4:
+            universityFile.open("science_tech_universities.txt");
+            break;
+        case 5:
+            universityFile.open("medical_universities.txt");
+            break;
+        case 6:
+            universityFile.open("private_universities.txt");
+            break;
+        default:
+            cout << "Invalid choice.\n";
+            return;
+    }
+
+    if (universityFile.is_open()) {
+        string universityName;
+
+        // Output universities based on the specified type
+        cout << "\n";
+
+        while (getline(universityFile, universityName)) {
+            // Output universities based on the specified type
+            if (!universityName.empty()) {
+                cout << universityName << endl;
+            }
+        }
+
+        universityFile.close();
+    } else {
+        cerr << "Unable to open university file." << endl;
+    }
+}
+
+
+
 
 // Function to authenticate and determine user type
 string authenticateUser(const string& userType, string& department, string& program, int& semester) {
     // Your authentication logic goes here
     // For simplicity, let's use some hardcoded values
     if (userType == "A") {
-        return "Welcome, Admission Candidate!";
+        while (true) {
+            cout << "\nChoose a feature:\n";
+            cout << "1. View University\n";
+            cout << "2. View University Categorically\n";
+            cout << "3. Exit\n";
+
+            int featureChoice;
+            cout << "Enter your choice (1-3): ";
+            cin >> featureChoice;
+
+            switch (featureChoice) {
+                case 1:
+                    cout << "\n";
+                    viewUniversity();
+                    break;
+                case 2:
+                    cout << "\n";
+    				viewCategorizedUniversities();
+                    break;
+                case 3:
+                    cout << "Exiting Admission Candidate features.\n";
+                    return "Welcome, Admission Candidate!";
+                default:
+                    cout << "Invalid choice. Try again.\n";
+            }
+        }
+		//return "Welcome, Admission Candidate!";
     } else if (userType == "U") {
     	while (true){
     		// Prompt the undergraduate student to choose a department
@@ -56,11 +166,12 @@ string authenticateUser(const string& userType, string& department, string& prog
                                                 cout << "1. Get Syllabus\n";
                                                 cout << "2. Get Book List\n";
                                                 cout << "3. Get Course Material\n";
-                                                
-												cout << "4. Exit\n";
+                                                cout << "4. Join Study Forum\n";
+                                                cout << "5. See Higher Studies Opportunites\n";
+												cout << "6. Exit\n";
 
                                                 int featureChoice;
-                                                cout << "Enter your choice (1-4): ";
+                                                cout << "Enter your choice (1-6): ";
                                                 cin >> featureChoice;
 
                                                 switch (featureChoice) {
@@ -363,6 +474,19 @@ string authenticateUser(const string& userType, string& department, string& prog
                                                         }
                                                         break;
                                                     case 4:
+                                                    	cout << "\nLinks to join Study Forum in Semester 3:\n";
+                                                    	cout << "SWE 4301 OOP: https://www.w3schools.com/cpp/cpp_oop.asp\n";
+                                                    	cout << "CSE 4303 DS: https://www.freecodecamp.org/news/learn-data-structures-and-algorithms/\n";
+														cout << "CSE 4305 COA: https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/\n";
+														cout << "CSE 4307 DBMS: https://www.geeksforgeeks.org/introduction-of-dbms-database-management-system-set-1/\n";
+														cout << "CSE 4309 TOC: https://www.geeksforgeeks.org/introduction-of-theory-of-computation/\n";
+														cout << "Math 4341 LA: https://www.cuemath.com/algebra/linear-algebra/\n";
+														cout << "\n";
+														break;
+													case 5:
+														cout << "Fetching Opportunity list for Higher Studies\n";
+														break;
+													case 6:
                                                         cout << "Exiting feature selection.\n";
                                                         return "Welcome, SWE Student in " + department + " department, Semester " + to_string(semester) + "!";
                                                     default:
