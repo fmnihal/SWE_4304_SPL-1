@@ -1,0 +1,14 @@
+# branch
+    git branch
+    git checkout -b newBranch
+    //Works on specific branch
+    git status
+    git add .
+    git commit
+    git status
+    git push origin newBranch
+    
+    repeat
+
+    git checkout main   //to see whether the change is visible in local file
+    git pull origin main    //fetch from repo main to local main

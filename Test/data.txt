@@ -1,0 +1,15 @@
+University,Department,Program,Total_Semesters,Course_Name,Semester,Theory
+IUT,CSE,CSE,8,Data Structures,3,1
+IUT,CSE,CSE,8,Algorithms,3,1
+IUT,CSE,SWE,8,Object-Oriented Programming,3,1
+
+SWE 4301- Object Oriented Concepts II
+CSE 4303- Data Structures
+CSE 4305- Computer Architecture & Organization
+CSE 4307- Database Management System
+CSE 4309- Theory of Computation
+Math 4341- Linear Algebra
+SWE 4302- Object Oriented Concepts II Lab
+SWE 4304- Software Project Lab I (SPL-I)
+CSE 4304- Data Structures Lab
+CSE 4308- Database Management System Lab

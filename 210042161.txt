@@ -1,0 +1,33 @@
+User of the App: Admission Candidate, Undergrad students, Higher Studies;
+
+For Admission Candidate:
+     Gets a clear idea of which subject or which uni is suitable for him/her.
+     Helps their migration period easier.
+     Feature for Hall seat Availability.
+     He can sort by:
+        Undergrad Preference (Engineering, MBBS, Agri, Honour’s)
+        Higher Studies Convenience
+        Global Uni Ranking (QS/ QS Asia)
+        Personal favourite fields to study
+        Cost/ Tution Fee
+        Cultural & Religious Perspective
+        Credit Hours
+
+For Undergrad Student:
+    Virtual version of Catalogue
+    Links to Reference Books to Courses related to the Student/User
+    Lab Class related Portal; containing all the Study material, Assignments, Reminders
+    Links to join Study Forum (Course Specific/ Dept-wise)
+    Feature to keep track of his learning progress in the Semester
+    Can remain option that redirects to Course Instructors for further contact
+    Room for keeping notes & insights taken during Learning process
+    Feature to get updates on Hall seat availability (Applicable for Non-Res (who applied) only)
+
+For Students Pursuing Higher Studies:
+    Room for keeping a track of his progress
+    Alternative to Grad School:
+        Teaching assistant
+        Individual Course
+        bootcamp
+
+//Testing this part to see branch work
